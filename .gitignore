@@ -1,0 +1,25 @@
+db.sqlite3
+*.pyc
+
+
+# pyenv
+.python-version
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+**__pypackages__/
+**__pycache__/
+**swp
+
+
+# Environments
+/venv/*
+virtualenv/
+/.idea/*
+geckodriver.exe
+geckodriver.log
+
+# Test files
+**.pytest_cache
+
+
+
