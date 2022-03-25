@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'meinbahn.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'meinbahndb.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
