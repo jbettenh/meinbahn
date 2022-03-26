@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Departures</title>
+    <!--<link href="{% static 'christmasflix/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'christmasflix/base.css' %}" rel="stylesheet">-->
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row my-3">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="text-center">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid movie-app">
+        <div class="row my-3">
+            {% block table %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
