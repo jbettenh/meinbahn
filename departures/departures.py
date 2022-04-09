@@ -6,18 +6,42 @@ from unittest import registerResult
 from pyparsing import Combine
 import requests
 import xmltodict
+import json
 
 
 # Return XML data
 BASE_URL = 'https://efa.vrr.de/standard/XML_DM_REQUEST'
 
-def xml_helper(xml_response):
-    departures_dict = xmltodict.parse(xml_response)
+def xml_to_json(xml_response):
+    full_response = xmltodict.parse(xml_response.content)
+    departures = {}
 
-    return departures_dict
+    for index, departure in enumerate(full_response['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture']):
+        departures[index] = {}
+        departures[index]['stop_id'] = departure[u'@stopID']
+        departures[index]['stop_name'] = departure[u'@nameWO']
+        departures[index]['platform'] = departure[u'@platform']
+
+        day = departure['itdDateTime']['itdDate'][u'@day']
+        month = departure['itdDateTime']['itdDate'][u'@month']
+        year = departure['itdDateTime']['itdDate'][u'@year']
+        hour = departure['itdDateTime']['itdTime'][u'@hour']
+        minute = departure['itdDateTime']['itdTime'][u'@minute']
+        second = departure['itdDateTime']['itdTime'][u'@second']
+        departures[index]['date_time'] = day + '/' + month + '/' + year + ' ' + hour + ':' + minute + ':' + second
+
+        departures[index]['line'] = departure['itdServingLine'][u'@number']
+        departures[index]['direction_to'] = departure['itdServingLine'][u'@direction']
+        departures[index]['direction_from'] = departure['itdServingLine'][u'@directionFrom']
+        departures[index]['route_description'] = departure['itdServingLine']['itdRouteDescText']
+
+    print(departures)
+    departures_list = json.dumps(departures)
+
+    return departures_list
 
 
-def get_departures(stop='20018249', direction='RBG:71707: :H'):
+def get_departures(stop='20018107', direction='RBG:71707: :H'):
 
     payload = {'sessionID': '0', 'language': 'de',
                'typeInfo_dm': 'stopID',
@@ -28,33 +52,15 @@ def get_departures(stop='20018249', direction='RBG:71707: :H'):
                }
 
     response = requests.get(BASE_URL, params=payload)
-    return response
-
+    
+    return xml_to_json(response)
 
 
 if __name__ == '__main__':
-    xml_content = get_departures(stop='20018107', direction='RBG:71707: :H')
-    result = xmltodict.parse(xml_content.content)
-    for index, departure in enumerate(result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture']):
-        stop_id = result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index][u'@stopID']
-        stop_name = result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index][u'@nameWO']
-        platform = result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index][u'@platform']
+    
+    json_content = get_departures(stop='20018107', direction='RBG:71707: :H')
+    print(json_content)
 
-        day = int(result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index]['itdDateTime']['itdDate'][u'@day'])
-        month = int(result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index]['itdDateTime']['itdDate'][u'@month'])
-        year = int(result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index]['itdDateTime']['itdDate'][u'@year'])
-        hour = int(result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index]['itdDateTime']['itdTime'][u'@hour'])
-        minute = int(result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index]['itdDateTime']['itdTime'][u'@minute'])
-        second = int(result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index]['itdDateTime']['itdTime'][u'@second'])
-        line = result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index]['itdServingLine'][u'@number']
-        direction_to = result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index]['itdServingLine'][u'@direction']
-        direction_from = result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index]['itdServingLine'][u'@directionFrom']
-        route_description = result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index]['itdServingLine']['itdRouteDescText']
-        dt = date(year, month, day)
-        tm = time(hour, minute, second)
-        combined = datetime.combine(dt, tm)
-        # print(f'Departing from {stop_name}')
-        # print(f'Next {line} train from {direction_from} heading to {direction_to}')
-        print(f'Next train at {combined} on platform: {platform}')
-        #print(f'{route_description}')
+        
+
 
