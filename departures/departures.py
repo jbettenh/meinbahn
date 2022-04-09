@@ -52,7 +52,7 @@ if __name__ == '__main__':
         direction_to = result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index]['itdServingLine'][u'@direction']
         direction_from = result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index]['itdServingLine'][u'@directionFrom']
         route_description = result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index]['itdServingLine']['itdRouteDescText']
-        dt = date(2022, 4, 9)
+        dt = date(year, month, day)
         tm = time(hour, minute, second)
         combined = datetime.combine(dt, tm)
         # print(f'Departing from {stop_name}')
