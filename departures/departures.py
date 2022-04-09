@@ -35,9 +35,7 @@ def get_departures(stop='20018249', direction='RBG:71707: :H'):
 if __name__ == '__main__':
     xml_content = get_departures(stop='20018107', direction='RBG:71707: :H')
     result = xmltodict.parse(xml_content.content)
-    index = 0
-    for departure in result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture']:
-        index += 1
+    for index, departure in enumerate(result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture']):
         stop_id = result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index][u'@stopID']
         stop_name = result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index][u'@nameWO']
         platform = result['itdRequest']['itdDepartureMonitorRequest']['itdDepartureList']['itdDeparture'][index][u'@platform']
