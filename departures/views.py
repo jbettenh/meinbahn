@@ -1,13 +1,7 @@
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, redirect, render
-from django.urls import reverse, reverse_lazy
-from django.views.generic import ListView
-
-from .models import Departure
-
-class IndexView(ListView):
-    context_object_name = 'departures_list'
-    template_name = 'departures/index.html'
-
-    def get_queryset(self):
-        return Departure.objects.all()
+from django.shortcuts import render
+from .departures import get_departures
+        
+        
+def get_departures_list(request):
+    upcoming_trains = get_departures(stop='20018107', direction='RBG:71707: :H')
+    return render(request, 'departures/index.html', {'departures_list': upcoming_trains['trains']})
