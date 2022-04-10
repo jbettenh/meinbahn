@@ -22,6 +22,8 @@ geckodriver.log
 
 # Test files
 **.pytest_cache
+vrr_response.xml
+json_data.json
 
 
 

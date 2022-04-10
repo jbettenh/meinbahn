@@ -4,5 +4,5 @@ from . import views
 
 app_name = 'departures'
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
+    path('', views.get_departures_list, name='index'),
 ]

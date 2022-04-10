@@ -10,16 +10,16 @@
                 <thead class="thead-light">
                 <tr>
                     <th scope="col">Line</th>
-                    <th scope="col">Destination</th>
+                    <th scope="col">Direction</th>
                     <th scope="col">Next Arrival</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for train in departures_list %}
+                {% for departure in departures_list %}
                 <tr>
-                    <td>{{ train.line }}</td>
-                    <td>{{ train.destination }}</td>
-                    <td>{{ train.next_train_time }}</td>
+                    <td>{{ departure.line }}</td>
+                    <td>{{ departure.direction_to }}</td>
+                    <td>{{ departure.date_time}}</td>
                 </tr>
                 {% endfor %}
                 </tbody>
