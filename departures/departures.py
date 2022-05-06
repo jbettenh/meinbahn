@@ -7,7 +7,6 @@ from pyparsing import Combine
 import requests
 import xmltodict
 import json
-import pprint
 
 
 # Return XML data
@@ -76,8 +75,7 @@ def xml_to_dict(xml_response):
 
     return departures
 
-def get_departures(stop='20018107', direction='RBG:71707: :H'):
-
+def get_departures(stop='20018107', direction='RBG:71707: :R'):
     payload = {'sessionID': '0', 'language': 'de',
                'typeInfo_dm': 'stopID',
                'nameInfo_dm': stop,
