@@ -91,6 +91,4 @@ def get_departures(stop='20018107', direction='RBG:71707: :R'):
 
 if __name__ == '__main__':
     json_content = get_departures(stop='20018107', direction='RBG:71707: :H')
-    # with open('json_data.json', 'w') as outfile:
-    #     outfile.write(json_content)
-    # pprint.pprint(json_content, indent=4)
+    print(json_content)
