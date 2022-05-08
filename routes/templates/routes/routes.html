@@ -2,6 +2,7 @@
 
 {% block header_text %}Routes{% endblock %}
 
+<!--
 <div class="row my-3">
     <div class="col-lg-6 offset-lg-3">
         <div class="text-center">
@@ -14,3 +15,33 @@
         </div>
     </div>
 </div>
+-->
+
+{% block table %}
+    {% if route_list %}
+    <div class="col-lg-6 offset-lg-3">
+        <table class="table table-striped">
+            <tr>
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Stop ID</th>
+                    <th scope="col">Direction</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for route in route_list %}
+                <tr>
+                    <td>{{ route.stop_id }}</td>
+                    <td>{{ route.direction }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </tr>
+        </table>
+    </div>
+    {% else %}
+        <p class="lead">No routes found.</p>
+    {% endif %}
+
+{% endblock %}
+

@@ -3,9 +3,12 @@ from msilib.schema import ListView
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
-from django.http import HttpResponse
 
-class MyView(ListView):
+from .models import Route
 
-    def get(self, request, *args, **kwargs):
-        return HttpResponse('Hello, World')
+class Routes(ListView):
+    context_object_name = 'route_list'
+    template_name = 'routes/routes.html'
+    
+    def get_queryset(self):
+        return Route.objects.all()
