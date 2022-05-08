@@ -8,6 +8,7 @@
     <title>Departures</title>
     <link href="{% static 'departures/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'departures/base.css' %}" rel="stylesheet">
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -17,6 +18,17 @@
         </div>
         <div class="col-lg-3">
             <p class="text-right display-4">{% now "H:i" %}</p>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col-lg-3 offset-lg-3">
+            <i class="fa-solid fa-house"></i>
+        </div>
+        <div class="col-lg-3">
+            <i class="fa-solid fa-plane"></i>
+        </div>
+        <div class="col-lg-3">
+            <i class="fa-solid fa-gear"></i>
         </div>
     </div>
     <div class="row my-3">
