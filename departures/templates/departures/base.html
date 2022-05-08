@@ -21,26 +21,14 @@
         </div>
     </div>
     <div class="row my-3">
-        <div class="col-lg-3 offset-lg-3">
-            <i class="fa-solid fa-house"></i>
+        <div class="col-lg-2 offset-lg-3">
+            <a class="btn" href="{% url 'departures:index' %}" role="button"><i class="fa-solid fa-house fa-xl"></i></a> 
         </div>
-        <div class="col-lg-3">
-            <i class="fa-solid fa-plane"></i>
+        <div class="col-lg-2 text-center">
+            <a class="btn" href="{% url 'departures:index' %}" role="button"><i class="fa-solid fa-plane fa-xl"></i></a> 
         </div>
-        <div class="col-lg-3">
-            <i class="fa-solid fa-gear"></i>
-        </div>
-    </div>
-    <div class="row my-3">
-        <div class="col-lg-6 offset-lg-3">
-            <div class="text-center">
-                <form method="{% block form_method %}{% endblock %}" action="{% block form_action %}{% endblock %}">
-                    <input name="user_request"
-                           id="id_station"
-                           class="form-control input-lg"
-                           placeholder="{% block form_placeholder %}{% endblock %}"/>
-                    {% csrf_token %}
-            </div>
+        <div class="col-lg-2 text-right">
+            <a class="btn" href="{% url 'departures:index' %}" role="button"><i class="fa-solid fa-gear fa-xl"></i></a>       
         </div>
     </div>
     <div class="container-fluid">
