@@ -1,5 +1,3 @@
-from cgi import test
-from urllib import response
 from django.test import TestCase
 from routes.models import Route
 
@@ -18,9 +16,11 @@ class RouteModelTest(TestCase):
 
     def test_route_created(self):
         test_name = Route.objects.get(name='test1')
+
         self.assertEqual(test_name.stop_id, '1')
     
     def test_passes_correct_route_to_template(self):
         correct_route = Route.objects.filter(name='test1')
         response = self.client.get('/routes/')
+
         self.assertQuerysetEqual(response.context['route_list'], correct_route)

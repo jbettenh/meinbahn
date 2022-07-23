@@ -1,7 +1,4 @@
-import datetime
-
 from django.db import models
-from django.utils import timezone
 
 class Departure(models.Model):
     id = models.AutoField(primary_key=True)
