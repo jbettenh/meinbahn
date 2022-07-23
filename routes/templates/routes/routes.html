@@ -1,22 +1,6 @@
 {% extends 'base.html' %}
 
 {% block header_text %}Routes{% endblock %}
-
-<!--
-<div class="row my-3">
-    <div class="col-lg-6 offset-lg-3">
-        <div class="text-center">
-            <form method="{% block form_method %}{% endblock %}" action="{% block form_action %}{% endblock %}">
-                <input name="user_request"
-                       id="id_station"
-                       class="form-control input-lg"
-                       placeholder="{% block form_placeholder %}{% endblock %}"/>
-                {% csrf_token %}
-        </div>
-    </div>
-</div>
--->
-
 {% block table %}
     {% if route_list %}
     <div class="col-lg-6 offset-lg-3">
@@ -24,6 +8,7 @@
             <tr>
                 <thead class="thead-dark">
                 <tr>
+                    <th scope="col">Route Name</th>
                     <th scope="col">Stop ID</th>
                     <th scope="col">Direction</th>
                 </tr>
@@ -31,6 +16,7 @@
                 <tbody>
                 {% for route in route_list %}
                 <tr>
+                    <td>{{ route.name }}</td>
                     <td>{{ route.stop_id }}</td>
                     <td>{{ route.direction }}</td>
                 </tr>
