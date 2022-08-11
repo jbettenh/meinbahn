@@ -40,28 +40,48 @@ def xml_to_dict(xml_response):
         train['line'] = departure['itdServingLine'][u'@number']
         train['direction_to'] = departure['itdServingLine'][u'@direction']
         train['direction_from'] = departure['itdServingLine'][u'@directionFrom']
-        train['route_description'] = departure['itdServingLine']['itdRouteDescText']
+        # train['route_description'] = departure['itdServingLine']['itdRouteDescText']
+        # train['route_description'] = 'description'
 
         trains.append(train)
-   
+
     departures['trains'] = trains
 
     return departures
 
-def get_departures(stop='20018107', direction='RBG:71707: :R'):
+
+def get_departures(stop, direction):
     payload = {'sessionID': '0', 'language': 'de',
                'typeInfo_dm': 'stopID',
                'nameInfo_dm': stop,
                'useRealtime': '1',
                'mode': 'direct',
-               'line': direction
+               'line': direction,
+               'limit': 8
                }
 
     response = requests.get(BASE_URL, params=payload)
     
-    return xml_to_dict(response)
+    if response.status_code == 200:
+        return xml_to_dict(response)
+    else:
+        return {}
 
 
 if __name__ == '__main__':
-    dict_content = get_departures(stop='20018107', direction='RBG:71707: :H')
+    id = 2
+    if id == 1:
+        # Home
+        stop = '20018107'
+        direction = 'RBG:71707: :H'
+    elif id ==2:
+        # Airport
+        stop = '20018249'
+        # tuple
+        direction = 'RBG:70072: :R','RBG:70071: :R','DDB:92E11: :R'
+        # list
+        direction = ['RBG:70072: :R','RBG:70071: :R','DDB:92E11: :R']
+
+    dict_content = get_departures(stop=stop, direction=direction)
     print(dict_content)
+    print(f'direction is type {type(direction)} and has value {direction}')
