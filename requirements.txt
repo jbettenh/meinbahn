@@ -1,0 +1,14 @@
+asgiref==3.5.2; python_version >= "3.8"
+certifi==2021.10.8; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.6.0"
+charset-normalizer==2.0.12; python_full_version >= "3.6.0" and python_version >= "3"
+django==4.1; python_version >= "3.8"
+fontawesomefree==6.1.1
+idna==3.3; python_version >= "3.5" and python_full_version < "3.0.0" or python_full_version >= "3.6.0" and python_version >= "3.5"
+psycopg2==2.9.3; python_version >= "3.6"
+pyparsing==3.0.9; python_full_version >= "3.6.8"
+python-dotenv==0.20.0; python_version >= "3.5"
+requests==2.27.1; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.6.0")
+sqlparse==0.4.2; python_version >= "3.8"
+tzdata==2022.1; sys_platform == "win32" and python_version >= "3.8"
+urllib3==1.26.9; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.6.0" and python_version < "4"
+xmltodict==0.12.0; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.4.0")

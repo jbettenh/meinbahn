@@ -17,6 +17,7 @@ db.sqlite3
 /venv/*
 virtualenv/
 /.idea/*
+.env
 geckodriver.exe
 geckodriver.log
 
