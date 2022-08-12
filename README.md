@@ -1,6 +1,7 @@
 
 meinbahn
 ========
+[![codecov](https://codecov.io/gh/jbettenh/meinbahn/branch/trunk/graph/badge.svg?token=IP3X3HAUAK)](https://codecov.io/gh/jbettenh/meinbahn)
 
 Meinbahn will get the local train schedules.
 
