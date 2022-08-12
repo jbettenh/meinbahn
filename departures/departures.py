@@ -3,7 +3,6 @@ from datetime import date, time, datetime
 from operator import index
 import re
 from unittest import registerResult
-from pyparsing import Combine
 import requests
 import xmltodict
 
