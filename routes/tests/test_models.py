@@ -2,13 +2,6 @@ from django.test import TestCase
 from routes.models import Route
 
 
-class RoutePageTest(TestCase):
-    def test_uses_routes_template(self):
-        response = self.client.get('/routes/')
-
-        self.assertTemplateUsed(response, 'routes/routes.html')
-
-
 #Django ORM Tests
 class RouteModelTest(TestCase):
     def setUp(self):

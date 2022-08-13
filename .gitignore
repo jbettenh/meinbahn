@@ -15,6 +15,7 @@ db.sqlite3
 
 # Environments
 /venv/*
+.vscode
 virtualenv/
 /.idea/*
 .env
