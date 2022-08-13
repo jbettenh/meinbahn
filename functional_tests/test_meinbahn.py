@@ -1,7 +1,8 @@
-from unicodedata import name
 from django.test import TestCase
+from unittest import skip
 from meinbahn import __version__
 from routes.models import Route
+
 
 
 def test_version():
@@ -24,6 +25,7 @@ class HomePageTest(TestCase):
 
         self.assertTemplateUsed(response, 'departures/departures.html')
 
+    @skip
     def test_uses_airport_departures_template(self):
         Route.objects.create(name='ariport', stop_id='20018249', direction="'RBG:70072: :R','RBG:70071: :R','DDB:92E11: :R'")
 
