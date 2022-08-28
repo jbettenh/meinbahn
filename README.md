@@ -3,6 +3,7 @@ meinbahn
 ========
 [![codecov](https://codecov.io/gh/jbettenh/meinbahn/branch/trunk/graph/badge.svg?token=IP3X3HAUAK)](https://codecov.io/gh/jbettenh/meinbahn)
 ![django workflow](https://github.com/jbettenh/meinbahn/actions/workflows/django.yml/badge.svg)
+
 Meinbahn will get the local train schedules.
 
 
