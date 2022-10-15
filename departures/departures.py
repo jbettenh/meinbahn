@@ -1,8 +1,4 @@
-from calendar import day_abbr
-from datetime import date, time, datetime
-from operator import index
-import re
-from unittest import registerResult
+from datetime import datetime
 import requests
 import xmltodict
 
