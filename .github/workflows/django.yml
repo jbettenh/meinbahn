@@ -12,14 +12,14 @@ jobs:
     env:
       DEBUG_VALUE: ${{ secrets.DEBUG_VALUE }}
       DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
-      POSTGRESQL_PASSWORD: ${{ secrets.POSTGRESQL_PASSWORD }}
+      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
       DJANGO_SETTINGS_MODULE: meinbahn.settings
     services:
       postgres:
         image: postgres:14
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRESQL_PASSWORD }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_DB: github_actions
         ports:
           - 5432:5432
