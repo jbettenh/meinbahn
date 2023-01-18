@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Departures</title>
+    <link href="{% static 'departures/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'departures/base.css' %}" rel="stylesheet">
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row my-3">
+        <div class="col-lg-3 offset-lg-3">
+            <h4 class="display-4">{% block header_text %}{% endblock %}</h4> 
+        </div>
+        <div class="col-lg-3">
+            <p class="text-right display-4">{% now "H:i" %}</p>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col-lg-1 offset-lg-3">
+            <a class="btn" href="{% url 'departures:home' %}" role="button"><i class="fa-solid fa-house fa-xl"></i></a> 
+        </div>
+        <div class="col-lg-1 text-center">
+            <a class="btn" href="{% url 'departures:work' %}" role="button"><i class="fa-solid fa-briefcase fa-xl"></i></a> 
+        </div>
+        <div class="col-lg-1 text-center">
+            <a class="btn" href="{% url 'departures:airport' %}" role="button"><i class="fa-solid fa-plane fa-xl"></i></a> 
+        </div>
+        <div class="col-lg-1 text-right">
+            <a class="btn" href="{% url 'routes:routes' %}" role="button"><i class="fa-solid fa-gear fa-xl"></i></a>       
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row my-3">
+            {% block table %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

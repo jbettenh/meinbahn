@@ -11,9 +11,10 @@
 /departures/static/departures/bootstrap/**/bootstrap*
 
 # Environments
-venv/*
-virtualenv/
+/venv/*
 .vscode
+virtualenv/
+/.idea/*
 .env
 geckodriver.exe
 geckodriver.log

@@ -1,25 +1,24 @@
 {% extends 'base.html' %}
 
-{% block header_text %}Departures{% endblock %}
-
+{% block header_text %}Routes{% endblock %}
 {% block table %}
-    {% if departures_list %}
+    {% if route_list %}
     <div class="col-lg-6 offset-lg-3">
         <table class="table table-striped">
             <tr>
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Line</th>
+                    <th scope="col">Route Name</th>
+                    <th scope="col">Stop ID</th>
                     <th scope="col">Direction</th>
-                    <th scope="col">Next Arrival</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for departure in departures_list %}
+                {% for route in route_list %}
                 <tr>
-                    <td>{{ departure.line }}</td>
-                    <td>{{ departure.direction_to }}</td>
-                    <td>{{ departure.arrival}}</td>
+                    <td>{{ route.name }}</td>
+                    <td>{{ route.stop_id }}</td>
+                    <td>{{ route.direction }}</td>
                 </tr>
                 {% endfor %}
                 </tbody>
@@ -27,7 +26,8 @@
         </table>
     </div>
     {% else %}
-        <p class="lead">No trains found.</p>
+        <p class="lead">No routes found.</p>
     {% endif %}
 
 {% endblock %}
+
