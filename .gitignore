@@ -1,11 +1,8 @@
-db.sqlite3
-*.pyc
-
-
 # pyenv
 .python-version
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
+*.pyc
 **__pypackages__/
 **__pycache__/
 **swp
@@ -14,16 +11,26 @@ db.sqlite3
 /departures/static/departures/bootstrap/**/bootstrap*
 
 # Environments
-/venv/*
+venv/*
 virtualenv/
-/.idea/*
+.vscode
+.env
 geckodriver.exe
 geckodriver.log
+notes.md
 
-# Test files
+# Development
+db.sqlite3
+
+# Build
+
+# Test
 **.pytest_cache
-vrr_response.xml
+.coverage
+coverage.xml
 json_data.json
+vrr_response.xml
+
 
 
 
