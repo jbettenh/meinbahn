@@ -12,10 +12,9 @@
 
 # Environments
 /venv/*
-.vscode
 virtualenv/
-/.idea/*
 .env
+.vscode
 geckodriver.exe
 geckodriver.log
 notes.md
