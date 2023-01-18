@@ -6,23 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('routes', '0002_rename_routes_route'),
+        ("routes", "0002_rename_routes_route"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='route',
-            name='date_archived',
+            model_name="route",
+            name="date_archived",
             field=models.DateTimeField(auto_now_add=True),
         ),
         migrations.AlterField(
-            model_name='route',
-            name='date_changed',
+            model_name="route",
+            name="date_changed",
             field=models.DateTimeField(auto_now_add=True),
         ),
         migrations.AlterField(
-            model_name='route',
-            name='date_created',
+            model_name="route",
+            name="date_created",
             field=models.DateTimeField(auto_now_add=True),
         ),
     ]

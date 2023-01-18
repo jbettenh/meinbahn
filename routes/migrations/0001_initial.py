@@ -7,22 +7,21 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='routes',
+            name="routes",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('user_id', models.IntegerField(default=1)),
-                ('stop_id', models.CharField(default='20018107', max_length=8)),
-                ('direction', models.CharField(default='RBG:71707: :R', max_length=13)),
-                ('name', models.CharField(default='stop name', max_length=50)),
-                ('archive', models.BooleanField(default=False)),
-                ('date_created', models.DateTimeField()),
-                ('date_changed', models.DateTimeField()),
-                ('date_archived', models.DateTimeField()),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("user_id", models.IntegerField(default=1)),
+                ("stop_id", models.CharField(default="20018107", max_length=8)),
+                ("direction", models.CharField(default="RBG:71707: :R", max_length=13)),
+                ("name", models.CharField(default="stop name", max_length=50)),
+                ("archive", models.BooleanField(default=False)),
+                ("date_created", models.DateTimeField()),
+                ("date_changed", models.DateTimeField()),
+                ("date_archived", models.DateTimeField()),
             ],
         ),
     ]
