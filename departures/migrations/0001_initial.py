@@ -7,17 +7,16 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Departures',
+            name="Departures",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('line', models.CharField(default='###', max_length=5)),
-                ('destination', models.CharField(default='', max_length=50)),
-                ('next_train_time', models.DateTimeField()),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("line", models.CharField(default="###", max_length=5)),
+                ("destination", models.CharField(default="", max_length=50)),
+                ("next_train_time", models.DateTimeField()),
             ],
         ),
     ]

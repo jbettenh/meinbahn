@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('routes', '0003_alter_route_date_archived_alter_route_date_changed_and_more'),
+        ("routes", "0003_alter_route_date_archived_alter_route_date_changed_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='route',
-            name='direction',
-            field=models.CharField(default='RBG:71707: :R', max_length=200),
+            model_name="route",
+            name="direction",
+            field=models.CharField(default="RBG:71707: :R", max_length=200),
         ),
     ]
