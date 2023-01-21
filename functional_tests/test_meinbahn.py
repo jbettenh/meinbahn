@@ -1,5 +1,3 @@
-from unittest import skip
-
 from django.test import TestCase
 
 from meinbahn import __version__
@@ -7,7 +5,7 @@ from routes.models import Route
 
 
 def test_version():
-    assert __version__ == "0.1.0"
+    assert __version__ == "0.2.0"
 
 
 class HomePageTest(TestCase):
@@ -29,12 +27,11 @@ class HomePageTest(TestCase):
 
         self.assertTemplateUsed(response, "departures/departures.html")
 
-    @skip
     def test_uses_airport_departures_template(self):
         Route.objects.create(
-            name="ariport",
+            name="airport",
             stop_id="20018249",
-            direction="'RBG:70072: :R','RBG:70071: :R','DDB:92E11: :R'",
+            direction="RBG:70072: :R,RBG:70071: :R,DDB:92E11: :R",
         )
 
         response = self.client.get("/departures/airport/")

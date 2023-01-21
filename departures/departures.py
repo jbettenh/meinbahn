@@ -75,29 +75,10 @@ def get_departures(stop, direction):
         "line": direction,
         "limit": 8,
     }
-
+    print(f"the direction was {direction}")
     response = requests.get(BASE_URL, params=payload)
 
     if response.status_code == 200:
         return xml_to_dict(response)
     else:
         return {}
-
-
-if __name__ == "__main__":
-    id = 2
-    if id == 1:
-        # Home
-        stop = "20018107"
-        direction = "RBG:71707: :H"
-    elif id == 2:
-        # Airport
-        stop = "20018249"
-        # tuple
-        direction = "RBG:70072: :R", "RBG:70071: :R", "DDB:92E11: :R"
-        # list
-        direction = ["RBG:70072: :R", "RBG:70071: :R", "DDB:92E11: :R"]
-
-    dict_content = get_departures(stop=stop, direction=direction)
-    print(dict_content)
-    print(f"direction is type {type(direction)} and has value {direction}")
