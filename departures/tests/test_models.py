@@ -17,3 +17,11 @@ class DeparturesModelsTest(TestCase):
 
         self.assertEqual(saved_departure.line, "666")
         self.assertEqual(saved_departure.destination, "moon")
+
+    def test_departure_repr(self):
+        depart = Departure()
+        depart.destination = "saturn"
+        depart.next_train_time = now()
+        depart.save()
+
+        self.assertEqual(repr(depart), "<Departure: saturn>")
