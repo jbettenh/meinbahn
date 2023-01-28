@@ -22,23 +22,4 @@ def get_stops(city, search):
 
     response = requests.get(BASE_URL, params=payload)
     response.encoding = "ISO-8859-1"
-    print(response.encoding)
-    print(response.text)
-    return response
-
-
-if __name__ == "__main__":
-    full_response = get_stops("Bilk (Düsseldorf)", "Kronprinzenstrasse")
-    lines = full_response["servingLines"]["lines"]
-    print(lines)
-    with open("line_data.txt", "w") as outfile:
-        outfile.write(full_response.text)
-
-    for line in lines:
-        print(
-            line["mode"]["number"]
-            + " "
-            + line["mode"]["destID"]
-            + " "
-            + line["mode"]["destination"]
-        )
+    return response.json()
