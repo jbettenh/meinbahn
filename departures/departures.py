@@ -34,16 +34,16 @@ def xml_to_dict(xml_response):
 
         train["date_time"] = (
             year
-            + "-"
-            + month.zfill(2)
-            + "-"
-            + day.zfill(2)
-            + " "
-            + hour.zfill(2)
-            + ":"
-            + minute.zfill(2)
-            + ":"
-            + second.zfill(2)
+            + "-"  # noqa: W503
+            + month.zfill(2)  # noqa: W503
+            + "-"  # noqa: W503
+            + day.zfill(2)  # noqa: W503
+            + " "  # noqa: W503
+            + hour.zfill(2)  # noqa: W503
+            + ":"  # noqa: W503
+            + minute.zfill(2)  # noqa: W503
+            + ":"  # noqa: W503
+            + second.zfill(2)  # noqa: W503
         )
         arrival_time = datetime.strptime(train["date_time"], format_date)
         time_delta = (arrival_time - current_time).total_seconds() / 60
