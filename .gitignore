@@ -21,6 +21,8 @@ notes.md
 
 # Development
 db.sqlite3
+serving_lines.txt
+stop.txt
 
 # Build
 
