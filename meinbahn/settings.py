@@ -28,12 +28,11 @@ load_dotenv()
 
 if "False" == os.environ.get("DEBUG_VALUE"):
     DEBUG = False
-    SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
-    ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", []).split(" ")
 else:
     DEBUG = True
-    SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
-    ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", []).split(" ")
+
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", []).split(" ")
 
 # Application definition
 
