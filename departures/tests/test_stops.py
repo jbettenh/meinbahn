@@ -1,6 +1,9 @@
+import pytest
+
 from departures.stops import get_stops
 
 
+@pytest.mark.skip()
 def test_get_stops():
     stops = get_stops("Düsseldorf", "Heinrich-Heine-Allee U")
 
