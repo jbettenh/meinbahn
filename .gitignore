@@ -32,3 +32,6 @@ stop.txt
 coverage.xml
 json_data.json
 vrr_response.xml
+
+# Deploy
+.github/workflows/cd_pipeline.yml

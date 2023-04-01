@@ -3,18 +3,18 @@
 {% block header_text %}Departures{% endblock %}
 
 {% block table %}
-    {% if departures_list %}
-    <div class="col-lg-6 offset-lg-3">
-        <table class="table table-striped">
-            <tr>
-                <thead class="thead-dark">
+{% if departures_list %}
+<div class="col-12">
+    <table class="table table-striped">
+        <tr>
+            <thead class="thead-dark">
                 <tr>
                     <th scope="col">Line</th>
                     <th scope="col">Direction</th>
                     <th scope="col">Next Arrival</th>
                 </tr>
-                </thead>
-                <tbody>
+            </thead>
+            <tbody>
                 {% for departure in departures_list %}
                 <tr>
                     <td>{{ departure.line }}</td>
@@ -22,12 +22,12 @@
                     <td>{{ departure.arrival}}</td>
                 </tr>
                 {% endfor %}
-                </tbody>
-            </tr>
-        </table>
-    </div>
-    {% else %}
-        <p class="lead">No trains found.</p>
-    {% endif %}
+            </tbody>
+        </tr>
+    </table>
+</div>
+{% else %}
+<p class="lead">No trains found.</p>
+{% endif %}
 
 {% endblock %}
