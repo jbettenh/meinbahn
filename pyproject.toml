@@ -5,7 +5,7 @@ description = ""
 authors = ["Joseph Bettenhausen <21023218+jbettenh@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
-Django = "^4.1.7"
+Django = "^4.1.10"
 fontawesomefree = "^6.1.1"
 gunicorn = "^20.1.0"
 psycopg2-binary = "^2.9.5"
